@@ -1,0 +1,9 @@
+<h1>Editing category</h1>
+
+<%= start_form_tag :action => 'update', :id => @category %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+
+<%= link_to 'Show', :action => 'show', :id => @category %> |
+<%= link_to 'Back', :action => 'list' %>

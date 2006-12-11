@@ -1,0 +1,9 @@
+<h1>Editing post</h1>
+
+<% form_for :post, @post, :url => { :action => 'update', :id => @post } do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <div class="buttons">
+		<%= submit_tag 'Save', :tabindex => '6' %> or <%= link_to 'Cancel', :action => 'show', :id => @post.id %>
+	</div>
+<% end %>

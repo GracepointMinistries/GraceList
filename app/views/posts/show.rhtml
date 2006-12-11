@@ -1,0 +1,17 @@
+<div class="single_post">
+	<h1><%=h @post.title %></h1>
+	<div class="subtitle">
+		Category: <%= link_to @post.category.name, :action => 'list', :category_id => @post.category.id %> | 
+		Posted on <%= @post.created_at.strftime('%a, %m/%d/%y') %> by <%= mail_to @post.email, @post.author %>
+	</div>
+
+	<div class="description">
+		<%= textilize @post.description %>
+	</div>
+
+	<div class="buttons">
+		<%= mail_to @post.email, 'Send email to ' + @post.author %> | 
+		<%= link_to 'Edit', :action => 'edit', :id => @post %> |
+		<%= link_to 'Back Home', :action => 'index' %>
+	</div>
+</div>

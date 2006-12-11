@@ -1,0 +1,28 @@
+<h1><%=h @category.name %></h1>
+
+<div class="buttons"><%= link_to 'Add a Post', :action => 'new' %></div>
+
+<table cellspacing="0" class="dataTable">
+  <tr>
+		<th>Title</th>
+		<th>Submitted by</th>
+		<th>Posted on</th>
+		<th>&nbsp;</th>
+  </tr>
+  
+	<% @posts.each do |p| %>
+	  <tr>
+	  	<td><%= link_to p.title, :action => 'show', :id => p %></td>
+			<td><%= mail_to p.email, p.author  %></td>
+			<td><%= p.created_at.strftime('%a, %m/%d/%y') %></td>
+	    <td><%= link_to image_tag("trash.gif", :size => "13x15"), { :action => 'destroy', :id => p }, :confirm => 'Are you sure you want to delete this post?', :post => true %></td>
+	  </tr>
+	<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @post_pages.current.previous } if @post_pages.current.previous %>
+<%= link_to 'Next page', { :page => @post_pages.current.next } if @post_pages.current.next %> 
+
+<div class="buttons">
+	<%= link_to 'Back Home', :action => 'index' %>
+</div>
