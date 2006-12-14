@@ -29,11 +29,6 @@ label {
 	font-weight: bold;
 }
 
-.big {
-	font-size: 15px;
-	line-height: 1.5em;
-}
-
 
 /* HEADER
 --------------------------------------------------------------------*/
@@ -139,11 +134,9 @@ tr.highlight {
 	background-color: #FFF;
 }
 
-.tagToolbox {
-	padding: 6px;
-	margin: 3px 0 0 0;
-	background-color: #fffff3;
-	border: 1px solid #ffecb1;
+.emailUpdate {
+	font-size: 11px;
+	margin: 4px 0 0 0;
 }
 
 /* OTHER CLASSES
@@ -190,6 +183,19 @@ tr.highlight {
 
 .med {
 	font-size: 11px;
+}
+
+.big {
+	font-size: 15px;
+	line-height: 1.5em;
+}
+
+.new {
+	font-size: 10px;
+	color: #fff;
+	background-color: #c00;
+	padding: 1px 3px;
+	margin: 0 0 0 4px;
 }
 
 .optional {
@@ -245,6 +251,7 @@ tr.highlight {
 .post .date {
 	color: #555;
 	font-size: 11px;
+	margin: 0 0 0 10px;
 	width: 75px;
 }
 

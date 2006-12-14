@@ -3,9 +3,9 @@
 		<% @categories.each do |c| %>
 			<% if c.name != 'Announcements' %>
 				<h2><%=h c.name %></h2>
-				<% Post.find_all_by_category_id(c.id, :limit => 10).each do |p| %>
+				<% Post.find_all_by_category_id(c.id, :limit => 10, :order => 'created_at DESC').each do |p| %>
 					<div class="post clearfix">
-						<div class="title"><%= link_to p.title, :action => 'show', :id => p.id  %></div>
+						<div class="title"><%= link_to p.title, :action => 'show', :id => p.id %><%= mark_as_new(p.created_at) %></div>
 						<div class="date"><%= p.created_at.strftime('%a, %b %d')  %></div>
 					</div>
 				<% end %>
@@ -22,15 +22,15 @@
 		<h2>Announcements</h2>
 		<% @categories.each do |c| %>
 			<% if c.name == 'Announcements' %>						
-				<% Post.find_all_by_category_id(c.id, :limit => 10).each do |p| %>
+				<% Post.find_all_by_category_id(c.id, :limit => 10, :order => 'created_at DESC').each do |p| %>
 					<div class="announcement clearfix">
-						<div class="title"><%=h p.title %></div>
+						<div class="title"><%=h p.title %><%= mark_as_new(p.created_at) %></div>
 						<div class="author">Posted by <%= mail_to p.email, p.author %> on <%= p.created_at.strftime('%a, %b %d')  %></div>
 						<div class="excerpt"><%=h truncate p.description, 150 %> <%= link_to '(more)', :action => 'show', :id => p.id  %></div>
 					</div>
 				<% end %>		
 					<div class="buttons">
-						<%= link_to 'Add an Announcement', :action => 'new', :category_id => c.id %> | 
+						<%= link_to 'Make an Announcement', :action => 'new', :category_id => c.id %> | 
 						<%= link_to 'View All', :action => 'list', :category_id => c.id %>	
 					</div>		
 			<% end %>

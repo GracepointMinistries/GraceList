@@ -14,6 +14,9 @@
 		<%= link_to 'Home', { :controller => 'posts', :action => 'index' } %> | 
 		<%= link_to 'About GraceList', { :controller => 'posts', :action => 'about' } %> | 
 		<a href="http://www.gracepointonline.org/gracewiki">Back to GraceWiki</a>
+		<% if Post.recent_items > 0 %>
+			<div class="emailUpdate">Next email will be sent on <%= (Date.today + NOTIFY_FREQUENCY).strftime('%A, %b %d, %I:%M%p') %></div>
+		<% end %>
 	</div>
 	<div class="title">
 		<h1>GraceList</h1>

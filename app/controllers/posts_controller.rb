@@ -60,4 +60,22 @@ class PostsController < ApplicationController
   # About GraceList
   def about
   end
+  
+  # Convenience action to preview the newsletter
+  def newsletter
+    index
+    render :layout => false
+  end
+  
+  # Send out newsletter
+  def notify    
+    # Render the newsletter
+    @categories = Category.find_all
+    body = render_to_string :action => 'newsletter', :layout => 'mail'
+    
+    # Deliver the newsletter
+    Notifier.deliver_newsletter(body, Post.recent_items.to_s)
+    flash[:notice] = 'Newsletter has been sent.'
+    redirect_to :action => 'index'
+  end
 end

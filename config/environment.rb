@@ -51,3 +51,18 @@ end
 # end
 
 # Include your application configuration below
+
+# Frequency of notifications
+NOTIFY_FREQUENCY = 2
+
+c = YAML::load(File.open("#{RAILS_ROOT}/config/config.yml"))
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.server_settings = {
+   :address => c[RAILS_ENV]['email']['server'],
+   :port => c[RAILS_ENV]['email']['port'],
+   :domain => c[RAILS_ENV]['email']['domain'],
+   :authentication => c[RAILS_ENV]['email']['authentication'],
+   :user_name => c[RAILS_ENV]['email']['username'],
+   :password => c[RAILS_ENV]['email']['password']
+}

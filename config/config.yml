@@ -1,0 +1,18 @@
+development:
+        email:
+                server: mail.berkmedia.org
+                port: 25
+                domain: www.berkmedia.org
+                authentication: login
+                username: gracelist+berkmedia.org
+                password: gracelistrules
+                contact_recipient: gracelist@berkmedia.org
+production:
+        email:
+                server: localhost
+                port: 25
+                domain: www.gracepointonline.org
+                authentication: login
+                username:
+                password: 
+                contact_recipient: josh@IRealyDontWantSpam.com
