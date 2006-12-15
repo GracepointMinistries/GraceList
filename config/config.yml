@@ -6,7 +6,7 @@ development:
                 authentication: login
                 username: gracelist+berkmedia.org
                 password: gracelistrules
-                contact_recipient: gracelist@berkmedia.org
+                delivery_method: :smtp
 production:
         email:
                 server: localhost
@@ -15,4 +15,4 @@ production:
                 authentication: login
                 username:
                 password: 
-                contact_recipient: josh@IRealyDontWantSpam.com
+                delivery_method: :sendmail                
