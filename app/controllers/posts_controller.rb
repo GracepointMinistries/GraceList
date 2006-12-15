@@ -72,10 +72,15 @@ class PostsController < ApplicationController
     # Render the newsletter
     @categories = Category.find_all
     body = render_to_string :action => 'newsletter', :layout => 'mail'
-    
+    recent_items = Post.recent_items
     # Deliver the newsletter
-    Notifier.deliver_newsletter(body, Post.recent_items.to_s)
-    flash[:notice] = 'Newsletter has been sent.'
+    if (recent_items > 0)
+      Notifier.deliver_newsletter(body, recent_items.to_s)
+      flash[:notice] = 'Newsletter has been sent.'
+    else
+      flash[:notice] = 'There are no recent items these past ' + (7.0/NOTIFY_FREQUENCY).to_s + ' days, so no newsletter needs to be sent'
+    end
+    
     redirect_to :action => 'index'
   end
 end

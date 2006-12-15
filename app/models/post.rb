@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
     posts = Post.find_all
     posts.each do |p|
-      num_recent += 1 if p.created_at > NOTIFY_FREQUENCY.days.ago
+      num_recent += 1 if p.created_at > (7.days/NOTIFY_FREQUENCY).ago
     end
     
     num_recent
