@@ -7,6 +7,7 @@ class CreateCategories < ActiveRecord::Migration
     Category.create(:name => "Lost")
     Category.create(:name => "Found")    
     Category.create(:name => "Free Stuff")
+    Category.create(:name => "Wanted")
     Category.create(:name => "Jobs")
     Category.create(:name => "Announcements")
     
