@@ -51,7 +51,7 @@
 								<td>
 									<h3 style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; font-weight: bold; color: #333333; margin: 0;"><%=h p.title %><%= mark_as_new(p.created_at, 't') %></h3>
 									<div style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 11px; margin: 2px 0 2px 0">Posted by <%= mail_to p.email, p.author, :style => 'color: #0e85ff' %> on <%= p.created_at.strftime('%a, %b %d')  %></div>
-									<div style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 12px; margin: 0 0 20px 0; line-height: 18px"><%=h truncate p.description, 150 %> <%= link_to '(more)', { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff'  %></div>
+									<div style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 12px; margin: 0 0 20px 0; line-height: 18px"><%= tlize(truncate(p.description, 150)) %> <%= link_to '(more)', { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff'  %></div>
 								</td>
 							</tr>
 							<% end %>	
