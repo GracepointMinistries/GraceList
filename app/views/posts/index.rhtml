@@ -22,11 +22,11 @@
 		<h2>Announcements</h2>
 		<% @categories.each do |c| %>
 			<% if c.name == 'Announcements' %>						
-				<% Post.find_all_by_category_id(c.id, :limit => 10, :order => 'created_at DESC').each do |p| %>
+				<% Post.find_all_by_category_id(c.id, :limit => 6, :order => 'created_at DESC').each do |p| %>
 					<div class="announcement clearfix">
 						<div class="title"><%=h p.title %><%= mark_as_new(p.created_at) %></div>
 						<div class="author">Posted by <%= mail_to p.email, p.author %> on <%= p.created_at.strftime('%a, %b %d')  %></div>
-						<div class="excerpt"><%= tlize(truncate p.description, 150) %> <%= link_to '(more)', :action => 'show', :id => p.id  %></div>
+						<div class="excerpt"><%= tlize(truncate p.description, 350) %> <%= link_to '(more)', :action => 'show', :id => p.id  %></div>
 					</div>
 				<% end %>		
 					<div class="buttons">
