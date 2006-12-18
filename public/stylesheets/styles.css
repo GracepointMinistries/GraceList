@@ -49,6 +49,11 @@ label {
 	font-size: 32px;
 }
 
+#header h1 a {
+	color: #fff;
+	text-decoration: none;
+}
+
 #header h2 {
 	font-weight: normal;
 	font-size: 13px;
