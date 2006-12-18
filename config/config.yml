@@ -1,12 +1,12 @@
 development:
         email:
-                server: mail.berkmedia.org
+                server: localhost
                 port: 25
-                domain: www.berkmedia.org
+                domain: www.gracepointonline.org
                 authentication: login
-                username: gracelist+berkmedia.org
-                password: gracelistrules
-                delivery_method: :smtp
+                username:
+                password: 
+                delivery_method: :sendmail                
 production:
         email:
                 server: localhost
@@ -15,4 +15,4 @@ production:
                 authentication: login
                 username:
                 password: 
-                delivery_method: :sendmail                
+                delivery_method: :sendmail
