@@ -54,7 +54,8 @@ class PostsController < ApplicationController
 
   def destroy
     Post.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    flash[:notice] = 'Post has been deleted.'
+    redirect_to :action => 'index'
   end
   
   # About GraceList
