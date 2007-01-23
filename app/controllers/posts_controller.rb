@@ -18,7 +18,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    begin
+      @post = Post.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = 'Sorry, post not found.  It was probably deleted by somebody.'
+      redirect_to :action => 'index'
+    end
   end
 
   def new
