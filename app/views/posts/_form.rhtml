@@ -60,8 +60,10 @@
 	<div class="buttons"><a href="javascript:;" onclick="new Effect.toggle('formatting_guide_full', 'blind', {duration: 0.2}); return false">Close this</a></div>
 </div>
 
-<p><label for="post_title">Title<%= required %></label><br/>
-<%= f.text_field 'title', :size => "60", :tabindex => '1'  %></p>
+<table><tr><td>
+<label for="post_title">Title<%= required %></label><br/>
+<%= f.text_field 'title', :size => "60", :tabindex => '1'  %>
+</td></tr></table>
 
 <p>
 	<label for="category_id">Category<%= required %></label><br />
