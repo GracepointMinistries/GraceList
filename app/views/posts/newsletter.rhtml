@@ -23,34 +23,31 @@
 			<tr>
 				<td width="55%" style="vertical-align: top;">
 					<% @categories.each do |c| %>
-					<% if c.name != 'Announcements' %>
 					<h2 style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 20px; color: #333333; margin: 0 0 6px 0; border-top: 1px solid #eeeeee; padding: 14px 0 0 0;"><%=h c.name %></h2>
 					<% Post.find_all_by_category_id(c.id, :limit => 6, :order => 'created_at DESC').each do |p| %>
 					<table cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
-							<td width="75%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 13px; padding: 3px 0 3px 0"><%= mark_as_new(p.created_at, 't') %> <%= link_to truncate(p.title, 28), { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff' %></td>
-							<td width="25%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 12px; color: #555555; padding: 3px 0 3px 0"><%= p.created_at.strftime('%a, %b %d')  %></td>
+							<td width="70%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 13px; padding: 3px 0 3px 0"><%= mark_as_new(p.created_at, 't') %> <%= link_to truncate(p.title, 26), { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff' %></td>
+							<td width="30%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 12px; color: #555555; padding: 3px 0 3px 0"><%= time_ago_in_words(p.created_at)  %> ago</td>
 						</tr>
 					</table>
 					<% end %>
 					<div style="font-family: 'Lucida Grande', Arial, sans-serif; margin: 14px 0 22px 0; font-size: 12px">
 						<%= link_to 'New Post', { :action => 'new', :category_id => c.id, :only_path => false }, :style => 'color: #0e85ff' %> |
 						<%=	link_to 'View All', { :action => 'list', :category_id => c.id, :only_path => false }, :style => 'color: #0e85ff' %>	
-					</div>
-					<% end %>		
+					</div>		
 					<% end %>
 				</td>
 				<td width="45%" style="vertical-align: top; padding: 0 0 0 32px">
 					<div style="border: 2px solid #FEE19F; background-color: #FDF9EE; padding: 12px;">
 						<h2 style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 20px; margin: 12px 0 16px 0;">Announcements</h2>						
 						<table cellspacing="0" cellpadding="0" border="0" width="100%"> 							
-							<% @categories.each do |c| %>
-							<% if c.name == 'Announcements' %>						
-							<% Post.find_all_by_category_id(c.id, :limit => 3, :order => 'created_at DESC').each do |p| %>
+							<% @announcements.each do |a| %>
+							<% Post.find_all_by_category_id(a.id, :limit => 3, :order => 'created_at DESC').each do |p| %>
 							<tr>
 								<td>
 									<h3 style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; font-weight: bold; color: #333333; margin: 0;"><%=h p.title %><%= mark_as_new(p.created_at, 't') %></h3>
-									<div style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 11px; margin: 2px 0 2px 0">Posted by <%= mail_to p.email, p.author, :style => 'color: #0e85ff' %> on <%= p.created_at.strftime('%a, %b %d')  %></div>
+									<div style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 11px; margin: 2px 0 2px 0">Posted by <%= mail_to p.email, p.author, :style => 'color: #0e85ff' %> about <%= time_ago_in_words(p.created_at)  %></div>
 									<div style="font-family: 'Lucida Grande', Arial, sans-serif; color: #333333; font-size: 12px; margin: 0 0 20px 0; line-height: 18px"><%= textilize(truncate(p.description, 350)) %> <%= link_to '(more)', { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff'  %></div>
 								</td>
 							</tr>
@@ -58,12 +55,11 @@
 							<tr>
 								<td colspan="2">
 									<div style="font-family: 'Lucida Grande', Arial, sans-serif; margin: 14px 0 22px 0; font-size: 12px">
-										<%= link_to 'Make an Announcement', { :action => 'new', :category_id => c.id, :only_path => false }, :style => 'color: #0e85ff' %> | 
-										<%= link_to 'View All', { :action => 'list', :category_id => c.id, :only_path => false }, :style => 'color: #0e85ff' %>
+										<%= link_to 'Make an Announcement', { :action => 'new', :category_id => a.id, :only_path => false }, :style => 'color: #0e85ff' %> | 
+										<%= link_to 'View All', { :action => 'list', :category_id => a.id, :only_path => false }, :style => 'color: #0e85ff' %>
 									</div>
 								</td>
 							</tr>
-							<% end %>
 							<% end %>
 						</table>
 					</div>

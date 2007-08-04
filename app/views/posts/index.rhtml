@@ -1,39 +1,35 @@
 <div id="home" class="clearfix">
 	<div class="posts"> 
 		<% @categories.each do |c| %>
-			<% if c.name != 'Announcements' %>
-				<h2><%=h c.name %></h2>
-				<% Post.find_all_by_category_id(c.id, :limit => 10, :order => 'created_at DESC').each do |p| %>
-					<div class="post clearfix">
-						<div class="title"><%= mark_as_new(p.created_at) %> <%= link_to truncate(p.title, 28), :action => 'show', :id => p.id %></div>
-						<div class="date"><%= p.created_at.strftime('%a, %b %d')  %></div>
-					</div>
-				<% end %>
-	
-				<div class="buttons">
-				  <%= link_to 'New Post', :action => 'new', :category_id => c.id %> |
-					<%=	link_to 'View All', :action => 'list', :category_id => c.id %>	
+			<h2><%=h c.name %></h2>
+			<% Post.find_all_by_category_id(c.id, :limit => 10, :order => 'created_at DESC').each do |p| %>
+				<div class="post clearfix">
+					<div class="title"><%= mark_as_new(p.created_at) %> <%= link_to truncate(p.title, 26), :action => 'show', :id => p.id %></div>
+					<div class="date"><%= time_ago_in_words(p.created_at)  %> ago</div>
 				</div>
-			<% end %>		
+			<% end %>
+
+			<div class="buttons">
+			  <%= link_to 'New Post', :action => 'new', :category_id => c.id %> |
+				<%=	link_to 'View All', :action => 'list', :category_id => c.id %>	
+			</div>		
 		<% end %>
 	</div> <!-- end .posts -->
 
 	<div class="announcements">
 		<h2>Announcements</h2>
-		<% @categories.each do |c| %>
-			<% if c.name == 'Announcements' %>						
-				<% Post.find_all_by_category_id(c.id, :limit => 6, :order => 'created_at DESC').each do |p| %>
-					<div class="announcement clearfix">
-						<div class="title"><%=h p.title %><%= mark_as_new(p.created_at) %></div>
-						<div class="author">Posted by <%= mail_to p.email, p.author %> on <%= p.created_at.strftime('%a, %b %d')  %></div>
-						<div class="excerpt"><%= textilize(truncate p.description, 350) %> <%= link_to '(more)', :action => 'show', :id => p.id  %></div>
-					</div>
-				<% end %>		
-					<div class="buttons">
-						<%= link_to 'Make an Announcement', :action => 'new', :category_id => c.id %> | 
-						<%= link_to 'View All', :action => 'list', :category_id => c.id %>	
-					</div>		
-			<% end %>
+		<% @announcements.each do |a| %>
+			<% Post.find_all_by_category_id(a.id, :limit => 6, :order => 'created_at DESC').each do |p| %>
+				<div class="announcement clearfix">
+					<div class="title"><%=h p.title %><%= mark_as_new(p.created_at) %></div>
+					<div class="author">Posted by <%= mail_to p.email, p.author %> about <%= time_ago_in_words(p.created_at)  %> ago</div>
+					<div class="excerpt"><%= textilize(truncate p.description, 350) %> <%= link_to '(more)', :action => 'show', :id => p.id  %></div>
+				</div>
+			<% end %>		
+				<div class="buttons">
+					<%= link_to 'Make an Announcement', :action => 'new', :category_id => a.id %> | 
+					<%= link_to 'View All', :action => 'list', :category_id => a.id %>	
+				</div>		
 		<% end %>
 	</div> <!-- end .announcements -->
 </div> <!-- end #home -->

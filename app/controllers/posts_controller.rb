@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @categories = Category.find_all
+    @categories = Category.find(:all, :conditions => ["name != 'Announcements'"])
+    @announcements = Category.find_all_by_name('Announcements')
+#    @accouncements = Category.find(:all, :conditions => ["name = 'Announcements'"])
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
@@ -76,7 +78,7 @@ class PostsController < ApplicationController
   # Send out newsletter
   def notify    
     # Render the newsletter
-    @categories = Category.find_all
+    index
     body = render_to_string :action => 'newsletter', :layout => 'mail'
     recent_items = Post.recent_items
     # Deliver the newsletter
