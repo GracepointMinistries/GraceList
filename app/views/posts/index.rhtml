@@ -4,7 +4,7 @@
 			<h2><%=h c.name %></h2>
 			<% Post.find_all_by_category_id(c.id, :limit => 10, :order => 'created_at DESC').each do |p| %>
 				<div class="post clearfix">
-					<div class="title"><%= mark_as_new(p.created_at) %> <%= link_to truncate(p.title, 26), :action => 'show', :id => p.id %></div>
+					<div class="title"><%= mark_as_new(p.created_at) %> <%= link_to truncate(p.title, 26), { :action => 'show', :id => p.id } , :title => p.title %></div>
 					<div class="date"><%= time_ago_in_words(p.created_at)  %> ago</div>
 				</div>
 			<% end %>
