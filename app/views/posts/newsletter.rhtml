@@ -27,7 +27,7 @@
 					<% Post.find_all_by_category_id(c.id, :limit => 6, :order => 'created_at DESC').each do |p| %>
 					<table cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
-							<td width="70%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 13px; padding: 3px 0 3px 0"><%= mark_as_new(p.created_at, 't') %> <%= link_to truncate(p.title, 26), { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff' %></td>
+							<td width="70%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 13px; padding: 3px 0 3px 0"><%= mark_as_new(p.created_at, 't') %> <%= link_to truncate(p.title, 26), { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff', :title => p.title %></td>
 							<td width="30%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 12px; color: #555555; padding: 3px 0 3px 0"><%= time_ago_in_words(p.created_at)  %> ago</td>
 						</tr>
 					</table>
