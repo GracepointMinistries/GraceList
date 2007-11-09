@@ -20,8 +20,8 @@
 	<% end %>
 </table>
 
-<%= link_to 'Previous page', { :page => @post_pages.current.previous } if @post_pages.current.previous %>
-<%= link_to 'Next page', { :page => @post_pages.current.next } if @post_pages.current.next %> 
+<%= link_to 'Previous page', { :page => @post_pages.current.previous, :category_id => @category.id } if @post_pages.current.previous %>
+<%= link_to 'Next page', { :page => @post_pages.current.next, :category_id => @category.id  } if @post_pages.current.next %> 
 
 <div class="buttons">
 	<%= link_to 'Back Home', :action => 'index' %>
