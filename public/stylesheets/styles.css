@@ -9,6 +9,7 @@ body {
 --------------------------------------------------------------------*/
 a, a:visited {
 	color: #0e85ff;
+	text-decoration: none;
 }
 
 a:hover {
@@ -225,7 +226,7 @@ tr.highlight {
 /* POST LISTING
 --------------------------------------------------------------------*/
 .posts {
-	width: 330px;
+	width: 360px;
 	float: left;
 	margin: 0 20px 0 0;
 }
@@ -249,13 +250,13 @@ tr.highlight {
 
 .post .title {
 	font-size: 13px;
-	width: 200px;
+	width: 250px;
 	clear: left;
 }
 
 .post .date {
 	color: #555;
-	font-size: 11px;
+	font-size: 10px;
 	margin: 0 0 0 10px;
 	width: 100px;
 }
@@ -290,7 +291,7 @@ tr.highlight {
 /* ANNOUCEMENT LISTING
 --------------------------------------------------------------------*/
 .announcements {
-	width: 270px;
+	width: 240px;
 	float: left;
 	border: 2px solid #FEE19F;
 	background-color: #FDF9EE;
@@ -304,7 +305,7 @@ tr.highlight {
 	margin: 0 0 1.5em 0;
 }
 .announcement .title {
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: bold;
 }
 
@@ -313,7 +314,9 @@ tr.highlight {
 	color: #555;
 }
 
-.announcement .excerpt {
+.announcement .excerpt p {
+	margin-top: 6px;
+	margin-bottom: 2px;
 	font-size: 12px;
 }
 
