@@ -12,6 +12,12 @@ module PostsHelper
       return '<span class="new">new</span>'
     end
   end
+
+  # Return a formatted post title
+  def post_title(p)
+    length = (p.created_at > (7.days/NOTIFY_FREQUENCY).ago) ? 32 : 38
+    truncate(p.title, length)
+  end
   
   # When is the next time the newsletter will go out
   def next_newsletter_update
