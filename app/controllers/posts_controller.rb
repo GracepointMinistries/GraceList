@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   def index
     @categories = Category.find(:all, :conditions => ["name != 'Announcements'"])
     @announcements = Category.find_all_by_name('Announcements')
-#    @accouncements = Category.find(:all, :conditions => ["name = 'Announcements'"])
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
