@@ -1,8 +1,8 @@
 <div class="single_post">
 	<h1><%=h @post.title %></h1>
+	<h3>Posted by <%= mail_to @post.email, @post.author, :subject => "#{@post.title} on GraceList" %> under <%= link_to @post.category.name, :action => 'list', :category_id => @post.category.id %></h3>
 	<div class="subtitle">
-		Category: <%= link_to @post.category.name, :action => 'list', :category_id => @post.category.id %> | 
-		Posted on <%= @post.created_at.strftime('%a, %m/%d/%y') %> by <%= mail_to @post.email, @post.author %>
+		<%= time_ago_in_words(@post.created_at) %> ago
 	</div>
 
 	<div class="description">
@@ -16,7 +16,7 @@
 			<%= link_to 'Delete this post', { :action => 'destroy', :id => @post }, :confirm => 'Are you sure you want to delete this?', :post => true %>
 		</div>
 		<div>
-			<%= mail_to @post.email, 'Send email to ' + @post.author %> | 
+			<%= mail_to @post.email, 'Send email to ' + @post.author, :subject => "#{@post.title} on GraceList" %> | 
 			<%= link_to 'Edit', :action => 'edit', :id => @post %> |
 			<%= link_to 'Back Home', :action => 'index' %>
 		</div>
