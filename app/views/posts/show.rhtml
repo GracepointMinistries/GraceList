@@ -6,9 +6,8 @@
 	</div>
 
 	<div class="description">
-		<%= textilize @post.description %>
+		<%= auto_link(textilize(@post.description), :urls) %>
 	</div>
-
 
 	<div class="buttons">
 		<div class="floatRight">

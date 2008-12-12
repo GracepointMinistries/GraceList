@@ -23,7 +23,7 @@
 				<div class="announcement clearfix">
 					<div class="title"><%=h p.title %><%= mark_as_new(p.created_at) %></div>
 					<div class="author">Posted by <%= mail_to p.email, p.author %> about <%= time_ago_in_words(p.created_at)  %> ago</div>
-					<div class="excerpt"><%= textilize(truncate p.description, 350) %> <%= link_to('(more)', :action => 'show', :id => p.id) if p.description.length > 350  %></div>
+					<div class="excerpt"><%= auto_link(textilize(truncate p.description, 350), :urls) %> <%= link_to('(more)', :action => 'show', :id => p.id) if p.description.length > 350  %></div>
 				</div>
 			<% end %>		
 				<div class="buttons">
