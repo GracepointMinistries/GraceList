@@ -41,7 +41,7 @@ label {
 
 #header .title {
 	height: 46px;
-	background: url(../images/gracelist.gif) no-repeat top left;
+	background: url(../images/gracelist.png) no-repeat top left;
 	padding: 6px 0 0 53px;	
 }
 
@@ -62,7 +62,12 @@ label {
 }
 
 #header .links {
-	float: right;
+	color: #6699AA;
+	float: right;	
+}
+
+#header .links a {
+	color: #ffdd3e;
 }
 
 #main {
