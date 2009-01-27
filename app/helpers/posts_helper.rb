@@ -8,7 +8,7 @@ module PostsHelper
   # Arg: inline_styled is a Boolean for using inline CSS styles
   def mark_as_new(d, inline_styled = false)
     if d > (7.days/NOTIFY_FREQUENCY).ago
-      return '<span style="font-size: 10px; color: #ffffff; background-color: #cc0000; padding: 1px 3px 1px 3px; margin: 0 0 0 4px;">new</span>' if inline_styled
+      return '<span style="font-size: 10px; font-weight: bold; color: #ffffff; background-color: #009900; padding: 1px 3px 1px 3px; margin: 0 0 0 4px;">new</span>' if inline_styled
       return '<span class="new">new</span>'
     end
   end

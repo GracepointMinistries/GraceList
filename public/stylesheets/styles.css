@@ -203,8 +203,9 @@ tr.highlight {
 
 .new {
 	font-size: 10px;
+	font-weight: bold;
 	color: #fff;
-	background-color: #c00;
+	background-color: #090;
 	padding: 1px 3px;
 	margin: 0 0 0 4px;
 }
