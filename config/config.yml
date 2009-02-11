@@ -1,18 +1,31 @@
 development:
-        email:
-                server: localhost
-                port: 25
-                domain: www.gracepointonline.org
-                authentication: login
-                username:
-                password: 
-                delivery_method: :sendmail                
+    email:
+        server: mail.conradchu.com
+        port: 2525
+        domain:
+        authentication: login
+        username: smtp+conradchu.com
+        password: smtprules
+        delivery_method: :smtp           
+    java_runtime: /usr/bin/java                     
+
 production:
-        email:
-                server: localhost
-                port: 25
-                domain: www.gracepointonline.org
-                authentication: login
-                username:
-                password: 
-                delivery_method: :sendmail
+    email:
+        server: mail.conradchu.com
+        port: 2525
+        domain:
+        authentication: login
+        username: smtp+conradchu.com
+        password: smtprules
+        delivery_method: :smtp   
+    java_runtime: /opt/jdk1.5.0_06/bin/java
+
+#        email:
+#                server: localhost
+#                port: 25
+#                domain: www.gracepointonline.org
+#                authentication: login
+#                username:
+#                password: 
+#                delivery_method: :sendmail
+#                
