@@ -1,0 +1,19 @@
+xml.instruct! 
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do 
+  xml.channel do 
+    xml.title 'GraceList Recent Posts'
+    xml.link 'http://app.gracepointonline.org/gracelist'
+    xml.pubDate CGI.rfc1123_date(Time.now)
+    xml.description 'Gracepoint Fellowship Church Community Board'
+    @posts.reverse_each do |p| 
+      xml.item do 
+        xml.title p.category.name + ': '+ p.title
+        xml.link url_for(:only_path => false, :controller => 'posts', :action => 'show', :id => p)
+        xml.description truncate(auto_link(p.description, :urls), 300)
+        xml.pubDate CGI.rfc1123_date(p.created_at) 
+        xml.guid url_for(:only_path => false, :controller => 'posts', :action => 'show', :id => p)
+        xml.author h(p.author) 
+      end
+    end 
+  end 
+end

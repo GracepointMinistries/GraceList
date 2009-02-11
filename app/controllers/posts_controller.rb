@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  caches_page :rss
+  cache_sweeper :post_sweeper
+
   def index
     @categories = Category.find(:all, :conditions => ["name != 'Announcements'"])
     @announcements = Category.find_all_by_name('Announcements')
@@ -66,6 +69,12 @@ class PostsController < ApplicationController
   
   # About GraceList
   def about
+  end
+
+  # RSS Feed
+  def rss
+    @posts = Post.find(:all, :limit => 25, :order => "created_at DESC").reverse
+    render :layout => false
   end
   
   # Convenience action to preview the newsletter

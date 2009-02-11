@@ -6,14 +6,15 @@
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag "styles", :media => "all" %>
   <%= javascript_include_tag  :defaults %>
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/Gracelist" />
 </head>
 <body>
 
 <div id="header">
 	<div class="links">
 		<%= link_to 'Home', { :controller => 'posts', :action => 'index' } %> | 
-		<%= link_to 'About GraceList', { :controller => 'posts', :action => 'about' } %> | 
-		<a href="http://www.gracepointonline.org/gracewiki">Back to GraceWiki</a>
+		<a href="http://feeds.feedburner.com/Gracelist">Subcribe to RSS</a> |
+		<%= link_to 'About GraceList', { :controller => 'posts', :action => 'about' } %>
 		<% if Post.recent_items > 0 %>
 			<div class="emailUpdate">Email updates are sent Monday and Thursdays at 12pm</div>
 		<% end %>
@@ -35,7 +36,7 @@
     Questions? Email <%= mail_to 'conrad.chu@gpmail.org', nil, :encode => 'javascript' %>.
   </div>
   <div class="floatRight">
-    Submit bugs to <a href="http://trac.gracepointonline.org/">GraceTrac</a>.
+    <a href="http://feeds.feedburner.com/Gracelist">Subscribe to RSS</a>.
   </div>
 </div>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
