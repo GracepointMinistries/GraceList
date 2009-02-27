@@ -4,14 +4,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :description, :category_id, :author, :email    
   
   def Post.recent_items
-    num_recent = 0
-
-    posts = Post.find_all
-    posts.each do |p|
-      num_recent += 1 if p.created_at > (7.days/NOTIFY_FREQUENCY).ago
-    end
-    
-    num_recent
+    Post.find(:all, :conditions => ['created_at > ?', (7.days/NOTIFY_FREQUENCY).ago]).length
   end
   
 end

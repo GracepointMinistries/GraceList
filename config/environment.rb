@@ -39,6 +39,7 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   # See Rails::Configuration for more options
+  config.action_controller.session = { :session_key => "_gracelist_session", :secret => "beimitatorsofgodthereforeasdearlylovedchildrenandlivealifeoflovejustaschristlovedus" }
 end
 
 # Add new inflection rules using the following format 
@@ -58,7 +59,7 @@ NOTIFY_FREQUENCY = 2
 c = YAML::load(File.open("#{RAILS_ROOT}/config/config.yml"))
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = c[RAILS_ENV]['email']['delivery_method']
-ActionMailer::Base.server_settings = {
+ActionMailer::Base.smtp_settings = {
    :address => c[RAILS_ENV]['email']['server'],
    :port => c[RAILS_ENV]['email']['port'],
    :domain => c[RAILS_ENV]['email']['domain'],
