@@ -67,7 +67,7 @@
 
 <p>
 	<label for="category_id">Category<%= required %></label><br />
-	<%= f.select 'category_id', Category.find_all.collect {|c| [c.name, c.id] }, :tabindex => '3' %>
+	<%= f.select 'category_id', Category.find(:all).collect {|c| [c.name, c.id] }, :tabindex => '3' %>
 </p>
 
 <p>

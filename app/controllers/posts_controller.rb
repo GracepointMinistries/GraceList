@@ -7,10 +7,6 @@ class PostsController < ApplicationController
     @announcements = Category.find_all_by_name('Announcements')
   end
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
-
   def list
     @category = Category.find_by_id(params[:category_id])
     if @category
