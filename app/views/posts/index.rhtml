@@ -11,7 +11,7 @@
 
 			<div class="buttons">
 			  <%= link_to 'New Post', :action => 'new', :category_id => c.id %> |
-				<%=	link_to 'View All', :action => 'list', :category_id => c.id %>	
+				<%=	link_to 'View All', :controller => 'categories', :id => c.id %>	
 			</div>		
 		<% end %>
 	</div> <!-- end .posts -->
@@ -28,7 +28,7 @@
 			<% end %>		
 				<div class="buttons">
 					<%= link_to 'Make an Announcement', :action => 'new', :category_id => a.id %> | 
-					<%= link_to 'View All', :action => 'list', :category_id => a.id %>	
+					<%= link_to 'View All', :controller => 'categories', :id => a.id %>	
 				</div>		
 		<% end %>
 	</div> <!-- end .announcements -->

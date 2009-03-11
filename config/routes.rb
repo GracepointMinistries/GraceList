@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   map.connect '', :controller => "posts", :action => 'index'
   map.posts '/:id', :controller => 'posts', :action => 'show', :id => /\d+/ 
+  map.categories '/categories/:id', :controller => 'categories', :action => 'index', :id => /\d+/ 
   map.feed '/feed', :controller => 'posts', :action => 'rss' 
 	
 

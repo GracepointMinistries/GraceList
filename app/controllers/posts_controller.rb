@@ -7,16 +7,6 @@ class PostsController < ApplicationController
     @announcements = Category.find_all_by_name('Announcements')
   end
 
-  def list
-    @category = Category.find_by_id(params[:category_id])
-    if @category
-      @post_pages, @posts = paginate :posts, :per_page => 20, :order => "created_at DESC", :conditions => ["category_id = ?", @category.id]
-    else
-      flash[:notice] = 'Please provide a valid category.'
-      redirect_to :action => 'index'
-    end
-  end
-
   def show
     begin
       @post = Post.find(params[:id])
