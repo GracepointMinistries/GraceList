@@ -1,6 +1,6 @@
 <h1>Editing post</h1>
 
-<% form_for :post, @post, :url => { :action => 'update', :id => @post } do |f| %>
+<% form_for @post do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
 
   <div class="buttons">
