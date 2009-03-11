@@ -34,7 +34,7 @@
 					<% end %>
 					<div style="font-family: 'Lucida Grande', Arial, sans-serif; margin: 14px 0 22px 0; font-size: 12px">
 						<%= link_to 'New Post', { :action => 'new', :category_id => c.id, :only_path => false }, :style => 'color: #0e85ff' %> |
-						<%=	link_to 'View All', { :action => 'list', :category_id => c.id, :only_path => false }, :style => 'color: #0e85ff' %>	
+						<%=	link_to 'View All', { :controller => 'categories', :id => c.id, :only_path => false }, :style => 'color: #0e85ff' %>	
 					</div>		
 					<% end %>
 				</td>
@@ -56,7 +56,7 @@
 								<td colspan="2">
 									<div style="font-family: 'Lucida Grande', Arial, sans-serif; margin: 14px 0 22px 0; font-size: 12px">
 										<%= link_to 'Make an Announcement', { :action => 'new', :category_id => a.id, :only_path => false }, :style => 'color: #0e85ff' %> | 
-										<%= link_to 'View All', { :action => 'list', :category_id => a.id, :only_path => false }, :style => 'color: #0e85ff' %>
+										<%= link_to 'View All', { :controller => 'categories', :id => a.id, :only_path => false }, :style => 'color: #0e85ff' %>
 									</div>
 								</td>
 							</tr>

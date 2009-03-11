@@ -10,10 +10,10 @@ development:
 
 production:
     email:
-        server: mail.conradchu.com
-        port: 2525
+        server: localhost
+        port:
         domain:
-        authentication: login
-        username: smtp+conradchu.com
-        password: smtprules
-        delivery_method: :smtp   
+        authentication: 
+        username: 
+        password: 
+        delivery_method: :sendmail
