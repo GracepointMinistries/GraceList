@@ -2,7 +2,7 @@ xml.instruct!
 xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do 
   xml.channel do 
     xml.title 'GraceList Recent Posts'
-    xml.link 'http://app.gracepointonline.org/gracelist'
+    xml.link 'http://gracelist.gracepointonline.org'
     xml.pubDate CGI.rfc1123_date(Time.now)
     xml.description 'Gracepoint Fellowship Church Community Board'
     @posts.reverse_each do |p| 
