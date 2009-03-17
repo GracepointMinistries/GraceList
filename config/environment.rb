@@ -67,3 +67,6 @@ ActionMailer::Base.smtp_settings = {
    :user_name => c[RAILS_ENV]['email']['username'],
    :password => c[RAILS_ENV]['email']['password']
 }
+
+# Required for sending emails
+require 'action_controller/integration'
