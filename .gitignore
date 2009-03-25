@@ -1,5 +1,6 @@
 log/*.log
 tmp/**/*
+public/feed.html
 public/posts/**/*
 config/database.yml
 *~
