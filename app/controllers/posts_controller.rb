@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  caches_page :rss
-  cache_sweeper :post_sweeper
+#  caches_page :rss
+#  cache_sweeper :post_sweeper
 
   def index
     @categories = Category.find(:all, :conditions => ["name != 'Announcements'"])
