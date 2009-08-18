@@ -13,7 +13,6 @@
 	<div class="links">
 		<%= link_to 'Home', { :controller => 'posts', :action => 'index' } %> | 
 		<%= link_to 'About GraceList', { :controller => 'posts', :action => 'about' } %> | 
-		<a href="http://www.gracepointonline.org/gracewiki">Back to GraceWiki</a>
 	</div>
 	<div class="title">
 		<h1>GraceList</h1>
@@ -28,11 +27,8 @@
 </div>
 
 <div id="footer">
-  <div class="floatLeft">
-    Questions? Email <%= mail_to 'conrad.chu@gpmail.org', nil, :encode => 'javascript' %>.
-  </div>
   <div class="floatRight">
-    Submit bugs to <a href="http://trac.gracepointonline.org/">GraceTrac</a>.
+    Submit bugs to <a href="<%= SUPPORT_LINK %>">Need Help?</a>.
   </div>
 </div>
 

@@ -2,7 +2,7 @@
 
 # Uncomment below to force Rails into production mode when 
 # you don't control web/app server and can't set it the proper way
-ENV['RAILS_ENV'] ||= 'production'
+# ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '1.1.6'
@@ -39,7 +39,7 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   # See Rails::Configuration for more options
-  config.action_controller.session = { :session_key => "_gracelist_session", :secret => "beimitatorsofgodthereforeasdearlylovedchildrenandlivealifeoflovejustaschristlovedus" }
+  config.action_controller.session = { :session_key => "_gracelist_session", :secret => "pleaseinsertarandomstringhereforsecuritypurposes" }
 end
 
 # Add new inflection rules using the following format 
@@ -53,8 +53,14 @@ end
 
 # Include your application configuration below
 
-# Frequency of notifications
+# Frequency of notifications, N times a week, starting on Sunday
 NOTIFY_FREQUENCY = 2
+
+# RSS Feed
+RSS = 'http://www.yoursite.com/posts/rss'
+
+# Support Link
+SUPPORT_LINK = 'http://www.yoursupportsite.com'
 
 c = YAML::load(File.open("#{RAILS_ROOT}/config/config.yml"))
 ActionMailer::Base.raise_delivery_errors = true
@@ -67,6 +73,9 @@ ActionMailer::Base.smtp_settings = {
    :user_name => c[RAILS_ENV]['email']['username'],
    :password => c[RAILS_ENV]['email']['password']
 }
+
+RECIPIENT_ALIAS = c[RAILS_ENV]['email']['recipient_alias_email']
+FROM_EMAIL = c[RAILS_ENV]['email']['from_email']
 
 # Required for sending emails
 require 'action_controller/integration'
