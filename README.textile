@@ -33,3 +33,15 @@ h2. Permissions and Security
 * There is no built-in user permissions, login schema or security features.  Users just have to enter their email in order to post/
 * There is an administration panel to allow you to add/remove categories.  It's accessible by going to /admin.
 * If you want any security, you should secure the app using Apache's server configuration or using .htaccess files.  I would not recommend leaving the app exposed to the public as anyone can go in an edit/delete posts.
+
+h2. About Gracepoint After Five
+
+"Gracepoint After Five":http://www.gracepointafterfive.com is a design blog, run by several guys who play the part of design professionals by day, who think real life starts after 5, the moment we step out of the glass doors and into the world, away from the pixels and bytes.
+
+h2. License
+
+Released under the MIT license.
+
+h2. Author
+
+* Conrad Chu <http://www.conradchu.com>
