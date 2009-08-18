@@ -1,6 +1,6 @@
 h1. "GraceList":http://github.com/conradchu/GraceList
 
-GraceList is a Craiglist-style classifieds app intended for small communities, such as at work or church.
+GraceList is a Craigslist-style classifieds app intended for small communities, such as at work or church.
 
 * Dead-simple user interface
 * Users can post to a category, like lost, found, free stuff, etc.
