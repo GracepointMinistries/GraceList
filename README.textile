@@ -9,6 +9,8 @@ GraceList is a Craigslist-style classifieds app intended for small communities, 
 
 Gracepoint After Five's design team originally made GraceList as an internal tool at our church, "Gracepoint Fellowship Church":http://www.gracepointonline.org.  Because it was a small group of trusted individuals using the tool, we could have a very simple system where security and permissions were not a concern. We hope you enjoy using the tool as much as we have.
 
+"View the demo":http://www.gracepointafterfive.com/gracelist
+
 h2. Installation
 
 * git clone git://github.com/conradchu/GraceList.git gracelist
