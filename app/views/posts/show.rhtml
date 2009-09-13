@@ -11,8 +11,9 @@
 
 	<div class="buttons">
 		<div class="floatRight">
-		        <%= image_tag 'trash.gif' %>
-			<%= link_to 'Delete this post', {:action => 'destroy', :id => @post}, :confirm => 'Are you sure you want to delete this?'%>
+		  <% form_for :post, :url => {:action => 'destroy', :id => @post} do |f| %>
+		  <%= f.submit 'Delete this post', :confirm => 'Are you sure you want to delete this?' %>
+			<% end %>
 		</div>
 		<div>
 			<%= mail_to @post.email, 'Send email to ' + @post.author, :subject => "#{@post.title} on GraceList" %> | 
