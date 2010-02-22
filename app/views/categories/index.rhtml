@@ -15,7 +15,11 @@
 	  	<td><%= link_to p.title, :controller => 'posts', :action => 'show', :id => p %></td>
 			<td><%= mail_to p.email, p.author  %></td>
 			<td><%= p.created_at.strftime('%a, %m/%d/%y') %></td>
-	    <td><%= link_to image_tag("trash.gif", :size => "13x15"), { :controller => 'posts', :action => 'destroy', :id => p }, :confirm => 'Are you sure you want to delete this post?', :post => true %></td>
+	    <td>
+			  <% form_for :post, :url => {:controller => 'posts', :action => 'destroy', :id => p} do |f| %>
+			  <%= f.submit 'Delete this post', :confirm => 'Are you sure you want to delete this?' %>
+				<% end %>
+		  </td>
 	  </tr>
 	<% end %>
 </table>
