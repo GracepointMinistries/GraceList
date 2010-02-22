@@ -1,11 +1,11 @@
 development:
     email:
-        server: mail.conradchu.com
-        port: 2525
+        server: 
+        port: 
         domain:
         authentication: login
-        username: smtp+conradchu.com
-        password: smtprules
+        username: 
+        password: 
         delivery_method: :smtp
         recipient_alias_email: alias@domain.com
         from_email: youremail@domain.com        
