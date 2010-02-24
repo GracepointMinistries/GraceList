@@ -24,9 +24,7 @@
 				<td width="60%" style="vertical-align: top;">
 					<% @categories.each do |c| %>
 					<h2 style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 20px; color: #333333; margin: 0 0 6px 0; border-top: 1px solid #eeeeee; padding: 14px 0 0 0;"><%=h c.name %></h2>
-					<% Post.find_all_by_category_id(c.id, :limit => 7
-					, :order => 'created_at DESC', :conditions => "DATE_SUB(CURDATE(),INTERVAL 40 DAY) <= cre
-					ated_at").each do |p| %>
+					<% Post.find_all_by_category_id(c.id, :limit => 7, :order => 'created_at DESC', :conditions => "DATE_SUB(CURDATE(),INTERVAL 40 DAY) <= created_at").each do |p| %>
 					<table cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
 							<td width="75%" style="font-family: 'Lucida Grande', Arial, sans-serif; font-size: 13px; padding: 3px 0 3px 0"><%= mark_as_new(p.created_at, 't') %> <%= link_to post_title(p), { :action => 'show', :id => p.id, :only_path => false }, :style => 'color: #0e85ff', :title => p.title %></td>
