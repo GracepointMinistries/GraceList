@@ -1,7 +1,7 @@
 development:
     email:
         server: 
-        port: 
+        port: 25
         domain:
         authentication: login
         username: 
@@ -9,15 +9,21 @@ development:
         delivery_method: :smtp
         recipient_alias_email: alias@domain.com
         from_email: youremail@domain.com        
+    links:
+        rss: http://www.yoursite.com/posts/rss    
+        support: http://www.yoursupportsite.com
 
 production:
     email:
-        server: localhost
-        port:
+        server: 
+        port: 25
         domain:
-        authentication: 
+        authentication: login
         username: 
         password: 
-        delivery_method: :sendmail
+        delivery_method: :smtp
         recipient_alias_email: alias@domain.com
-        from_email: youremail@domain.com
+        from_email: youremail@domain.com        
+    links:
+        rss: http://www.yoursite.com/posts/rss    
+        support: http://www.yoursupportsite.com

@@ -56,12 +56,6 @@ end
 # Frequency of notifications, N times a week, starting on Sunday
 NOTIFY_FREQUENCY = 2
 
-# RSS Feed
-RSS = 'http://www.yoursite.com/posts/rss'
-
-# Support Link
-SUPPORT_LINK = 'http://www.yoursupportsite.com'
-
 c = YAML::load(File.open("#{RAILS_ROOT}/config/config.yml"))
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = c[RAILS_ENV]['email']['delivery_method']
@@ -74,8 +68,11 @@ ActionMailer::Base.smtp_settings = {
    :password => c[RAILS_ENV]['email']['password']
 }
 
+# Setup constant variables
 RECIPIENT_ALIAS_EMAIL = c[RAILS_ENV]['email']['recipient_alias_email']
 FROM_EMAIL = c[RAILS_ENV]['email']['from_email']
+RSS = c[RAILS_ENV]['links']['rss']
+SUPPORT_LINK = c[RAILS_ENV]['links']['support']
 
 # Required for sending emails
 require 'action_controller/integration'
