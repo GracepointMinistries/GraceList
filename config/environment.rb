@@ -74,7 +74,7 @@ ActionMailer::Base.smtp_settings = {
    :password => c[RAILS_ENV]['email']['password']
 }
 
-RECIPIENT_ALIAS = c[RAILS_ENV]['email']['recipient_alias_email']
+RECIPIENT_ALIAS_EMAIL = c[RAILS_ENV]['email']['recipient_alias_email']
 FROM_EMAIL = c[RAILS_ENV]['email']['from_email']
 
 # Required for sending emails
