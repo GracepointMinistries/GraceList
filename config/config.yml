@@ -1,11 +1,11 @@
 development:
     email:
-        server: 
-        port: 25
+        server: mail.conradchu.com
+        port: 2525
         domain:
         authentication: login
-        username: 
-        password: 
+        username: smtp+conradchu.com
+        password: smtprules
         delivery_method: :smtp
         recipient_alias_email: alias@domain.com
         from_email: youremail@domain.com        
@@ -15,15 +15,15 @@ development:
 
 production:
     email:
-        server: 
-        port: 25
+        server: localhost
+        port:
         domain:
-        authentication: login
-        username: 
-        password: 
-        delivery_method: :smtp
-        recipient_alias_email: alias@domain.com
-        from_email: youremail@domain.com        
+        authentication:
+        username:
+        password:
+        delivery_method: :sendmail
+        recipient_alias_email: gpb_members@gpmail.org
+        from_email: gracelist@gpmail.org
     links:
-        rss: http://www.yoursite.com/posts/rss    
-        support: http://www.yoursupportsite.com
+        rss: http://feeds.feedburner.com/Gracelist
+        support: http://support.gracepointonline.org
