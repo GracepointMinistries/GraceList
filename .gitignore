@@ -3,6 +3,7 @@ tmp/**/*
 public/feed.html
 public/posts/**/*
 config/database.yml
+config/config.yml
 config/scout.yml
 *~
 .#*
