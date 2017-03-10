@@ -8,20 +8,20 @@ development:
         password: smtprules
         delivery_method: :smtp
         recipient_alias_email: alias@domain.com
-        from_email: youremail@domain.com        
+        from_email: youremail@domain.com
     links:
-        rss: http://www.yoursite.com/posts/rss    
+        rss: http://www.yoursite.com/posts/rss
         support: http://www.yoursupportsite.com
 
 production:
     email:
-        server: localhost
-        port:
+        server: smtp.gmail.com
+        port: 465
         domain:
-        authentication:
-        username:
-        password:
-        delivery_method: :sendmail
+        authentication: login
+        username: gracelist@gpmail.org
+        password: RcuSUMnGst9E
+        delivery_method: :smtp
         recipient_alias_email: gpb_members@gpmail.org
         from_email: gracelist@gpmail.org
     links:
