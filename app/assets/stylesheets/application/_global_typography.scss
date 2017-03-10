@@ -1,0 +1,80 @@
+/*
+
+  Imported by many.
+  Variables and Mixins Only.
+
+*/
+
+@import "application/global_colors";
+
+$serif_font_stack:              Times, serif;
+$sans_serif_font_stack:         Helvetica, Arial, sans-serif;
+
+
+// @source - [@Stephn-R](https://github.com/sass/sass/issues/1395#issuecomment-57483844)
+// modified mixin
+// @description converts 1 or more characters into a unicode
+// @markup {scss}
+// unicode("e655"); // "\e655"
+@function unicode($str){
+ @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+}
+@function unicode($str){
+    @return unquote("\"") + $str + unquote("\"");
+}
+
+@mixin RobotoRegular
+{
+  font-family: 'Roboto', $sans_serif_font_stack;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.2px;
+}
+
+@mixin RobotoMedium
+{
+  font-family: 'Roboto', $sans_serif_font_stack;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.5px;
+}
+
+@mixin RobotoBold
+{
+  font-family: 'Roboto', $sans_serif_font_stack;
+  font-weight: 700;
+  font-style: normal;
+}
+
+$body_size:                     14px;
+$body_line_height:              20px;
+$body_block_spacing:            30px;
+$body_color:                    $dark_gray;
+
+$link_color:                    $light_orange;
+$link_hover_color:              $orange; //No appearance change on hover
+
+/*
+
+  In the interest of consistent leading, there's
+  these terribly named little beasties.
+
+*/
+
+@mixin body-12
+{
+  font-size:                    12px;
+  line-height:                  20px;
+}
+
+@mixin body-13
+{
+  font-size:                    13px;
+  line-height:                  22px;
+}
+
+@mixin body-14
+{
+  font-size:                    14px;
+  line-height:                  24px;
+}

@@ -1,0 +1,18 @@
+<div id="home" class="clearfix">
+  <div class="posts">
+    <% @categories.each do |c| %>
+      <h2><%= c.name %></h2>
+      <% c.posts.order('created_at DESC').limit(7).each do |p| %>
+        <div class="post clearfix">
+          <div class="title"><%= mark_as_new(p.created_at) %> <%= link_to post_title(p), post_path(p) , :title => p.title %></div>
+          <div class="date"><%= time_ago_in_words(p.created_at)  %> ago</div>
+        </div>
+      <% end %>
+
+      <div class="buttons">
+        <%= link_to 'New Post', new_post_path(category_id: c.id) %> |
+        <%= link_to 'View All', category_path(c) %>
+      </div>
+    <% end %>
+  </div> <!-- end .posts -->
+</div> <!-- end #home -->

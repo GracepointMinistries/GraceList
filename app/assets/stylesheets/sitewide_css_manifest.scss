@@ -1,0 +1,446 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "application/global_colors";
+@import "application/global_typography";
+@import "application/headings";
+@import "application/widgets";
+
+
+body
+{
+  @include RobotoRegular;
+  font-size: 14px;
+  background-color: #DDD;
+  margin: 0;
+}
+
+/* GENERAL STYLES
+--------------------------------------------------------------------*/
+a, a:visited
+{
+  color:            #0e85ff;
+  text-decoration:  none;
+}
+
+a:hover
+{
+  text-decoration:  none;
+  background-color: #0e85ff;
+  color:            #FFF;
+}
+
+h1
+{
+  margin: 12px 42px 0 42px;
+}
+
+a img
+{
+  border: 0;
+}
+
+label
+{
+  font-weight: bold;
+}
+
+
+/* HEADER
+--------------------------------------------------------------------*/
+#header
+{
+  background: #00476e url(image-path('header_bg.gif')) repeat-x top left;
+  padding:    12px;
+  color:      #FFF;
+}
+
+#header .title
+{
+  height:     46px;
+  background: url(image-path('gracelist.png')) no-repeat top left;
+  padding:    6px 0 0 58px;
+}
+
+#header h1
+{
+  margin: 0;
+  font-size: 32px;
+}
+
+#header h1 a
+{
+  color: #FFF;
+  text-decoration: none;
+}
+
+#header h2
+{
+  color:        #FFF;
+  font-weight:  normal;
+  font-size:    13px;
+}
+
+#header .links
+{
+  color: #6699AA;
+  float: right;
+}
+
+#header .links a
+{
+  color: #ffdd3e;
+}
+
+#main
+{
+  background:   #FFF;
+  border-left:  1px solid #DDD;
+  border-right: 1px solid #DDD;
+  padding:      50px;
+  margin:       0 15px;
+  min-width:    500px;
+}
+
+#main h1
+{
+  margin: 12px 0 16px 0;
+}
+
+#footer
+{
+  color:      #AAA;
+  text-align: center;
+  padding:    8px 16px;
+  font-size:  12px;
+}
+
+.title
+{
+  font-size: 24px;
+}
+
+.data-table
+{
+  width:        100%;
+  clear:        both;
+  empty-cells:  show;
+  border:       1px solid #CCC;
+}
+.data-table th
+{
+  background-color: #555;
+  color:            #FFF;
+  padding:          3px 9px;
+  vertical-align:   top;
+  text-align:       left;
+}
+.data-table td
+{
+  text-align:     left;
+  vertical-align: top;
+  border-bottom:  1px #EEE solid;
+  padding:        3px 9px;
+}
+tr.highlight
+{
+  background-color: #FFFf80;
+  cursor: pointer;
+}
+
+.data-table th a, .data-table th a:visited
+{
+  color: #FFF;
+}
+.data-table th a:hover
+{
+  color: #EFCB73;
+}
+
+.leftTable
+{
+  border:           2px solid #FEE19F;
+  background-color: #FDF9EE;
+  padding:          8px;
+}
+
+.leftTable td, .leftTable th
+{
+  text-align:     left;
+  vertical-align: top;
+  padding:        6px 4px;
+  font-size:      12px;
+}
+
+.leftTable th
+{
+  text-align: right;
+}
+
+.leftTable td .data-table th
+{
+  text-align: left;
+}
+
+.leftTable td .data-table td
+{
+  background-color: #FFF;
+}
+
+.emailUpdate
+{
+  font-size: 11px;
+  margin: 4px 0 0 0;
+}
+
+/* OTHER CLASSES
+--------------------------------------------------------------------*/
+.feature
+{
+  border-top:       1px solid #ffe704;
+  border-bottom:    1px solid #ffe704;
+  padding:          24px 16px;
+  background-color: #FFFdec;
+  font-size:        15px;
+  line-height:      1.5em;
+  margin-bottom:    32px;
+}
+.buttons
+{
+  margin: 12px 0;
+  color: #888;
+  font-size: 11px;
+  clear: both;
+}
+
+.buttons a
+{
+  font-size: 14px;
+}
+
+.inline
+{
+  display: inline;
+}
+
+.inline form
+{
+  display: inline;
+}
+
+.floatRight
+{
+  float: right;
+}
+
+.floatLeft
+{
+  float: left;
+}
+
+.large
+{
+  font-size: 14px;
+}
+
+.med
+{
+  font-size: 11px;
+}
+
+.big
+{
+  font-size: 15px;
+  line-height: 1.5em;
+}
+
+.new
+{
+  font-size:        10px;
+  font-weight:      bold;
+  color:            #FFF;
+  background-color: #090;
+  padding:          1px 3px;
+  margin:           0 0 0 4px;
+}
+
+.optional
+{
+  color: #AAA;
+  font-size: 11px;
+}
+
+.required
+{
+  color: #c00;
+  font-weight: normal;
+}
+
+
+/* HOME
+--------------------------------------------------------------------*/
+#home
+{
+  width: 650px;
+  margin: 0 auto;
+}
+
+
+/* POST LISTING
+--------------------------------------------------------------------*/
+.posts
+{
+  width: 460px;
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.posts h2
+{
+  margin: 1em 0 0.5em 0;
+  padding: 1em 0 0 0;
+  border-top: 1px solid #eee;
+}
+
+
+/* POST
+--------------------------------------------------------------------*/
+.post
+{
+  margin: 0 0 0.5em 0;
+}
+
+.post .title, .post .date
+{
+  float: left
+}
+
+.post .title
+{
+  font-size:  14px;
+  width:      350px;
+  clear:      left;
+}
+
+.post .date
+{
+  color:      $warm_gray;
+  font-size:  11px;
+  margin:     0 0 0 10px;
+  width:      100px;
+}
+
+
+/* SINGLE POST
+--------------------------------------------------------------------*/
+#main .single_post h1
+{
+  margin: 0 0 0.25em 0;
+}
+
+.single_post h3
+{
+  font-weight: normal;
+  margin: 0
+}
+
+.single_post .subtitle
+{
+  font-size:  12px;
+  color:      #555;
+  margin:     0 0 1em 0;
+}
+
+.single_post .description
+{
+  border-bottom:  1px solid #CCC;
+  padding:        0 0 2em 0;
+  margin:         0.5em 0 1.5em 0;
+}
+
+.single_post .description h1
+{
+  font-size: 22px;
+}
+
+.single_post .description h2
+{
+  font-size: 18px;
+}
+
+.single_post .description h3
+{
+  font-size: 16px;
+}
+
+
+
+/* TEXTILE FORMATTING GUIDE
+--------------------------------------------------------------------*/
+#formatting_guide
+{
+  float:            right;
+  width:            200px;
+  font-size:        11px;
+  border:           2px solid #FEE19F;
+  background-color: #FDF9EE;
+  padding:          12px;
+}
+
+#formatting_guide p
+{
+  font-size: 11px;
+}
+
+#formatting_guide_full
+{
+  border:           2px solid #FEE19F;
+  background-color: #FDF9EE;
+  padding:          12px;
+}
+
+#formatting_guide_full td
+{
+  background: #FFF;
+}
+
+
+/* CLEARFIX HACK
+--------------------------------------------------------------------*/
+.clearfix:after
+{
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix
+{
+  display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix
+{
+  height: 1%;
+}
+.clearfix
+{
+  display: block;
+}
+/* End hide from IE-mac */

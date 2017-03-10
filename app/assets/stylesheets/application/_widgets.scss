@@ -1,0 +1,32 @@
+@import "application/global_colors";
+@import "application/global_typography";
+
+/* PAGINATION CONTROLS
+-------------------------------------------------------*/
+.pagination
+{
+  margin: 50px 0;
+}
+
+.pagination a, .pagination em
+{
+  padding: 5px 10px;
+}
+
+.pagination a
+{
+  border: 1px solid $warm_white;
+}
+
+.pagination a:hover
+{
+  color:            #FFF;
+  background-color: $orange;
+  border:           1px solid $orange;
+}
+
+.pagination em
+{
+  font-weight:  bold;
+  font-style:   normal;
+}

@@ -1,0 +1,33 @@
+<h1><%= @category.name %></h1>
+
+<div class="buttons"><%= link_to 'Add a Post', new_post_path %></div>
+
+<table cellspacing="0" class="data-table">
+  <tr>
+    <th>Title</th>
+    <th>Submitted by</th>
+    <th>Posted on</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <% @posts.each do |p| %>
+    <tr>
+      <td><%= link_to p.title, post_path(p) %></td>
+      <td><%= mail_to p.email, p.author  %></td>
+      <td><%= p.created_at.strftime('%a, %m/%d/%y') %></td>
+      <td>
+        <% form_for :post, :url => post_path(p), method: :destroy do |f| %>
+          <%= f.submit 'Delete this post', :confirm => 'Are you sure you want to delete this?' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="pagination">
+  <%= will_paginate @posts %>
+</div>
+
+<div class="buttons">
+  <%= link_to 'Back Home', root_path %>
+</div>

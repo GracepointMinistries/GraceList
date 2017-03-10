@@ -1,0 +1,24 @@
+<div class="single_post">
+  <h1><%= @post.title %></h1>
+  <h3>Posted by <%= mail_to @post.email, @post.author, :subject => "#{@post.title} on GraceList" %> under <%= link_to @post.category.name, category_path(@post.category) %></h3>
+  <div class="subtitle">
+    <%= time_ago_in_words(@post.created_at) %> ago
+  </div>
+
+  <div class="description">
+    <%= raw @markdown.render(@post.description) %>
+  </div>
+
+  <div class="buttons">
+    <div class="floatRight">
+      <% form_for :post, url: posts_path, method: :delete do |f| %>
+        <%= f.submit 'Delete this post', :confirm => 'Are you sure you want to delete this?' %>
+      <% end %>
+    </div>
+    <div>
+      <%= mail_to @post.email, 'Send email to ' + @post.author, :subject => "#{@post.title} on GraceList" %> |
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Back Home', root_path %>
+    </div>
+  </div>
+</div>

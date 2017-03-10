@@ -4,11 +4,37 @@
     <title>GraceList</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" />
+
+    <%= stylesheet_link_tag    'sitewide_css_manifest', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="header">
+      <div class="links">
+        <%= link_to 'Home', root_path %> |
+        <%= link_to 'About GraceList', about_home_index_path %>
+        <div class="emailUpdate">Email updates are sent Monday and Thursdays at 12pm</div>
+      </div>
+      <div class="title">
+        <h1><%= link_to 'GraceList', { :controller => 'posts', :action => 'index' } %></h1>
+        <h2>Community Bulletin Board</h2>
+      </div>
+    </div>
+
+    <div id="main">
+      <% if @page_title %>
+      <h2 class="title"><%= @page_title %></h2>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+      <div class="floatLeft">
+        <a href="#">Need help? Contact Support</a>
+      </div>
+    </div>
   </body>
 </html>

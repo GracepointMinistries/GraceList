@@ -1,25 +1,30 @@
-# SQLite version 3.x
-#   gem install sqlite3
+# MySQL
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+# Be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  username: root
+  password: <%= ENV['DB_1_ENV_MYSQL_ROOT_PASSWORD'] || '' %>
+  host: <%= ENV['DB_1_PORT_3306_TCP_ADDR'] || 'localhost' %>
+  port: <%= ENV['DB_1_PORT_3306_TCP_PORT'] || '3306' %>
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: gracelist_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: test
+
+staging:
+  <<: *default
+  database: gracelist_staging
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: gracelist_production
