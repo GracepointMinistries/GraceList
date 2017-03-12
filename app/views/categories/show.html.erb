@@ -1,8 +1,16 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to @category.name, category_path(@category) %></li>
+</ol>
+
+
 <h1><%= @category.name %></h1>
 
-<div class="buttons"><%= link_to 'Add a Post', new_post_path %></div>
+<div class="buttons">
+  <%= link_to 'Add a Post', new_post_path, class: 'btn btn-default' %>
+</div>
 
-<table cellspacing="0" class="data-table">
+<table cellspacing="0" class="table">
   <tr>
     <th>Title</th>
     <th>Submitted by</th>
@@ -26,8 +34,4 @@
 
 <div class="pagination">
   <%= will_paginate @posts %>
-</div>
-
-<div class="buttons">
-  <%= link_to 'Back Home', root_path %>
 </div>

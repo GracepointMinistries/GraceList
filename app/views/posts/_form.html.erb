@@ -11,42 +11,32 @@
     </div>
   <% end %>
 
-  <table>
-    <tr>
-      <td>
-        <label for="post_title">Title<%= required %></label><br/>
-        <%= f.text_field 'title', :size => "60", :tabindex => '1'  %>
-      </td>
-    </tr>
-  </table>
+  <div class="form-group">
+    <label for="post_title">Title<%= required %></label>
+    <%= f.text_field 'title', :size => "60", :tabindex => '1', class: 'form-control', placeholder: 'Title'  %>
+  </div>
 
-  <p>
-    <label for="category_id">Category<%= required %></label><br />
-    <%= f.select 'category_id', Category.all.collect {|c| [c.name, c.id] }, :tabindex => '3' %>
-  </p>
+  <div class="form-group">
+    <label for="category_id">Category<%= required %></label>
+    <%= f.select 'category_id', Category.all.collect {|c| [c.name, c.id] }, :tabindex => '3', class: 'form-control' %>
+  </div>
 
-  <p>
-    <div id="formatting_guide">
-      <h3>Simple formatting codes</h3>
-      <p>You can use simple, easy-to-write codes to format your description.  Just type the codes in your text and you will see the results after saving.</p>
-      <p>Here are some examples:</p>
-      <div class="markdownexamples">
-        <p>*bold* &rarr; <strong>bold</strong><br>
-        _italic_ &rarr; <em>italic</em></p>
-      </div>
-    </div>
+  <div class="form-group">
+    <label for="post_description">Description<%= required %></label>
+    <%= f.text_area 'description', :rows => "14", :cols => "60", :tabindex => '2', class: 'form-control'  %>
+  </div>
 
-    <label for="post_description">Description<%= required %></label><br/>
-    <%= f.text_area 'description', :rows => "14", :cols => "60", :tabindex => '2'  %>
-  </p>
+  <div class="form-group">
+    <label for="post_author">Your Name<%= required %></label>
+    <%= f.text_field 'author', :tabindex => '4', class: 'form-control' %>
+  </div>
 
-  <p><label for="post_author">Your Name<%= required %></label><br/>
-  <%= f.text_field 'author', :tabindex => '4' %></p>
-
-  <p><label for="post_email">Your Email<%= required %></label><br/>
-  <%= f.text_field 'email', :tabindex => '5' %></p>
+  <div class="form-group">
+    <label for="post_email">Your Email<%= required %></label>
+    <%= f.email_field 'email', :tabindex => '5', class: 'form-control' %>
+  </div>
 
   <div class="buttons">
-    <%= submit_tag 'Save', :tabindex => '6' %> or <%= link_to 'Back', root_path %>
+    <%= submit_tag 'Save Post', :tabindex => '6', class: 'btn btn-primary' %> <%= link_to 'Back', root_path, class: 'btn btn-default' %>
   </div>
 <% end %>

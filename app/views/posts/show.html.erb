@@ -1,8 +1,15 @@
 <div class="single_post">
-  <h1><%= @post.title %></h1>
-  <h3>Posted by <%= mail_to @post.email, @post.author, :subject => "#{@post.title} on GraceList" %> under <%= link_to @post.category.name, category_path(@post.category) %></h3>
-  <div class="subtitle">
-    <%= time_ago_in_words(@post.created_at) %> ago
+  <ol class="breadcrumb">
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to @post.category.name, category_path(@post.category) %></li>
+  </ol>
+
+  <div class="page-header">
+    <h1><%= @post.title %></h1>
+    <h3>Posted by <%= mail_to @post.email, @post.author, :subject => "#{@post.title} on GraceList" %> under <%= link_to @post.category.name, category_path(@post.category) %></h3>
+    <div class="subtitle">
+      <%= time_ago_in_words(@post.created_at) %> ago
+    </div>
   </div>
 
   <div class="description">
@@ -15,10 +22,11 @@
         <%= f.submit 'Delete this post', :confirm => 'Are you sure you want to delete this?' %>
       <% end %>
     </div>
-    <div>
-      <%= mail_to @post.email, 'Send email to ' + @post.author, :subject => "#{@post.title} on GraceList" %> |
-      <%= link_to 'Edit', edit_post_path(@post) %> |
-      <%= link_to 'Back Home', root_path %>
+
+    <div class="btn-group" role="group">
+      <%= mail_to @post.email, 'Send email to ' + @post.author, :subject => "#{@post.title} on GraceList", class: 'btn btn-default' %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default' %>
     </div>
+
   </div>
 </div>
