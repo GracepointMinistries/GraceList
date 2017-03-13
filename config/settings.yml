@@ -1,14 +1,6 @@
 # Emails
 dev_email: conrad.chu@gpmail.org
 
-# Mail setup
-mailer:
-  address:    '<%= Figaro.env.mailer_address! %>'
-  port:       '<%= Figaro.env.mailer_port! %>'
-  domain:     '<%= Figaro.env.mailer_domain! %>'
-  user_name:  '<%= Figaro.env.mailer_user_name! %>'
-  password:   '<%= Figaro.env.mailer_password! %>'
-
 # Number of times to notify users a week
 notify_frequency: 2
 
