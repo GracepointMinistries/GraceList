@@ -1,2 +1,6 @@
 # Number of times to notify users a week
 notify_frequency: 2
+
+# Notification Digest Email
+digest_from_email:            gracelist@gpmail.org
+digest_recipient_alias_email: gpb_members@gpmail.org

@@ -1,0 +1,49 @@
+<table cellspacing="0" cellpadding="0" border="0" width="750px" align="center">
+  <tr>
+    <td colspan="3" style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 11px; color: #fff; text-align: center; padding: 5px; background-color: #000">Having trouble reading this email? - <%= link_to 'View the web version instead', root_url, :style => 'color: #0e85ff'%></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+          <td style="font-family: Roboto, Helvetica, Arial, sans-serif; color: #ffffff; padding: 4px 16px; background-color: #006297; margin: 1px 0 0 0">
+            <h1 style="font-size: 32px; margin: 0;">GRACELIST</h1>
+            <h2 style="font-family: Roboto, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 12px; margin: 0 0 6px 3px;">Community Bulletin Board</h2>
+          </td>
+          <td style="font-family: Roboto, Helvetica, Arial, sans-serif; color: #ffffff; padding: 4px 16px; background-color: #006297; margin: 1px 0 0 0">
+            <div style="font-size: 16px; text-align: right; padding: 0 6px 0 0"><%= Date.current.strftime('%A, %b %d') %></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <td style="background-color: #eeeeee;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td width="100%" style="background-color: #ffffff; vertical-align: top; padding: 16px;">
+    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+      <tr>
+        <td style="vertical-align: top;">
+          <% @categories.each do |c| %>
+          <h2 style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; color: #333333; margin: 0 0 6px 0; border-top: 1px solid #eeeeee; padding: 14px 0 0 0;"><%=h c.name %></h2>
+          <% c.posts.order('created_at DESC').limit(7).each do |p| %>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+              <td width="75%" style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 14px; padding: 5px 0 5px 0"><%= mark_as_new(post_date: p.created_at, inline_style: true) %> <%= link_to post_title(p), post_url(p), :style => 'color: #0e85ff', :title => p.title %></td>
+              <td width="25%" style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 11px; color: #79776B; padding: 3px 0 3px 0"><%= time_ago_in_words(p.created_at)  %> ago</td>
+            </tr>
+          </table>
+          <% end %>
+          <div style="font-family: Roboto, Helvetica, Arial, sans-serif; margin: 14px 0 22px 0; font-size: 12px">
+            <%= link_to 'New Post', new_post_url(category_id: c.id), :style => 'color: #0e85ff' %> |
+            <%= link_to "View All #{c.name}", category_url(c), :style => 'color: #0e85ff' %>
+          </div>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </td>
+  <td style="background-color: #eeeeee;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="3" style="background-color: #eeeeee;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</table>

@@ -8,8 +8,8 @@ class Post < ApplicationRecord
   scope :in_category, -> (category) { where(category_id: category.id) }
   scope :most_recent, -> { order('created_at desc') }
 
-  # Return number of posts since last notification
+  # Return posts since last notification
   def Post.recent_items
-    Post.where('created_at > ?', (7.days/Settings.notify_frequency).ago).count
+    Post.where('created_at > ?', (7.days/Settings.notify_frequency).seconds.ago)
   end
 end
