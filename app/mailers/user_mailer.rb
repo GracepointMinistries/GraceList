@@ -9,7 +9,11 @@ class UserMailer < ApplicationMailer
     @categories = Category.includes(:posts).active.all
     num_recent_items = Post.recent_items.count
 
+    return unless num_recent_items > 0
+
     subject = "[GraceList] #{Time.current.strftime('%A, %m/%d')} - #{pluralize(num_recent_items, 'new post')}"
     mail(to: Settings.digest_recipient_alias_email, subject: subject)
+
+    EmailLog.create(category: 'digest', sent_at: Time.current)
   end
 end
