@@ -6,7 +6,7 @@ data:
 db:
   image: 'mysql:latest'
   environment:
-    MYSQL_ROOT_PASSWORD: %%FILL_IN_THIS%%
+    MYSQL_ROOT_PASSWORD: 'abc123'
   volumes_from:
     - data
 
