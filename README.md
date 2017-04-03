@@ -12,10 +12,10 @@ Things you may want to cover:
 * Configuration
 
 * Deploying the environment
-With Docker installed on your local machine, you can quickly deploy this app with the following commands:
-`docker-compose -f docker-compose.development.yml up -d --build`
-`docker-compose -f docker-compose.development.yml run web rake db:create db:schema:load db:seed`
-You'll need to create some test data in the database first, before being able to load the app properly
+
+  With Docker installed on your local machine, you can quickly deploy this app with the following commands:
+  * `docker-compose -f docker-compose.development.yml up -d --build`
+  * `docker-compose -f docker-compose.development.yml run web rake db:create db:schema:load db:seed`
 
 * How to run the test suite
 
