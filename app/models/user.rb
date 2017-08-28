@@ -15,14 +15,15 @@ class User < ApplicationRecord
   def self.from_omniauth(auth_token)
     data = auth_token.info
     user = User.where(email: data['email']).first
-binding.pry
+
     # Create user if doesn't exist
     unless user
         user = User.create(
             first_name: data['first_name'],
             last_name: data['last_name'],
             email: data['email'],
-            password: Devise.friendly_token[0,20]
+            password: Devise.friendly_token[0,20],
+            avatar_url: data['image']
         )
     end
     user
