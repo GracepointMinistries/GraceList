@@ -23,9 +23,14 @@ gem 'config',                   '~> 1.4.0'          # Configuration management
 gem 'will_paginate',            '~> 3.1.5'          # Pagination
 gem 'redcarpet',                '~> 3.3.4'          # Markdown
 gem 'figaro',                   '~> 1.1.1'          # Configuration management
+gem 'devise',                   '~> 4.2'            # Devise
+gem 'omniauth-google-oauth2',   '~> 0.5'            # Omniauth Google
+
 
 group :development, :test do
   gem 'byebug',           platform: :mri            # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry'                                         # Pry
+  gem 'pry-rails'                                   # Pry
 end
 
 group :development do

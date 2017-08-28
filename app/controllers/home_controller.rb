@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
+
   # GET /home
   def index
     @categories = Category.includes(:posts).active.all
