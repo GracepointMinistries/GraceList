@@ -81,7 +81,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (1.5.6)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -185,6 +185,7 @@ DEPENDENCIES
   figaro (~> 1.1.1)
   jbuilder (~> 2.5)
   jquery-rails
+  loofah (>= 2.2.3)
   mysql2 (~> 0.3)
   omniauth-google-oauth2 (~> 0.5)
   pry

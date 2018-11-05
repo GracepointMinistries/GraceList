@@ -18,6 +18,7 @@ gem 'jquery-rails'                                  # Use jquery as the JavaScri
 gem 'turbolinks',               '~> 5'              # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jbuilder',                 '~> 2.5'            # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'tzinfo-data',              platforms: [:mingw, :mswin, :x64_mingw, :jruby]  # Windows does ct include zoneinfo files, so bundle the tzinfo-data gem
+gem 'loofah',										'>= 2.2.3'
 
 # VENDOR GEMS
 gem 'config',                   '~> 1.4.0'          # Configuration management
@@ -26,6 +27,7 @@ gem 'redcarpet',                '~> 3.3.4'          # Markdown
 gem 'figaro',                   '~> 1.1.1'          # Configuration management
 gem 'devise',                   '~> 4'            # Devise
 gem 'omniauth-google-oauth2',   '~> 0.5'            # Omniauth Google
+
 
 
 group :development, :test do
