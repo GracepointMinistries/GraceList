@@ -11,6 +11,7 @@ end
 gem 'rails',                    '~> 5.1.6'
 gem 'mysql2',                   '~> 0.3'
 gem 'puma',                     '~> 3.1'            # Use Puma as the app server
+gem 'rack', 										'>= 2.0.6'
 # gem 'sass-rails',               '~> 5.0'            # Use SCSS for stylesheets
 gem 'uglifier',                 '>= 1.3.0'          # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails',             '~> 4.2'            # Use CoffeeScript for .coffee assets and views
