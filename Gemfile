@@ -24,7 +24,7 @@ gem 'loofah',										'>= 2.2.3'
 # VENDOR GEMS
 gem 'config',                   '~> 1.4.0'          # Configuration management
 gem 'will_paginate',            '~> 3.1.5'          # Pagination
-gem 'redcarpet',                '~> 3.3.4'          # Markdown
+gem 'redcarpet',                '~> 3.5.1'          # Markdown
 gem 'figaro',                   '~> 1.1.1'          # Configuration management
 gem 'devise',                   '~> 4'            # Devise
 gem 'omniauth-google-oauth2',   '~> 0.5'            # Omniauth Google
